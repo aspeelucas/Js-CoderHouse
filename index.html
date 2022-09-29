@@ -7,61 +7,74 @@
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-  <!--estilo css  -->
+  <!--Estilo css  -->
   <link rel="stylesheet" href="./css/main.css">
-  <title>Desafio DOM y EVENTOS</title>
+  <title>SEGUNDA ENTREGA FINAL</title>
 </head>
 
 <body>
 
-  <nav class="navbar navbar-expand-lg navbar-light bg-primary ">
+  <nav class="navbar navbar-expand-lg navbar-light  ">
     <div class="container-fluid ">
-      <a class="navbar-brand margenLogoNav" href="#">La Chocolateria</a>
+      <a class="navbar-brand margenLogoNav" href="./index.html" id="colorLogo">La Chocolateria</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse margenNav" id="navbarSupportedContent">
-        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 ">
           <li class="nav-item">
-            <a class="nav-link " aria-current="page" href="#">Home</a>
+            <a class="nav-link " aria-current="page" href="#" id="colorLogo">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
+            <a class="nav-link" href="#" id="colorLogo">Link</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
+            <a class="nav-link" href="#" id="colorLogo">Link</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
+            <a class="nav-link" href="#" id="colorLogo">Link</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
+            <a class="nav-link" href="#" id="colorLogo">Link</a>
           </li>
         </ul>
-        <div class="modalCarrito" id="openCar">
+        <div class="modalCarrito position-relative" id="openCar">
           <img src="./assets/logos/carritodecompras.png" class="nav-link dropdown-toggle img-fluid" height="80px"
             width="80px" data-bs-toggle="modal" data-bs-target="#exampleModal"></img>
+          <div class="position-absolute top-0 end-0    m-0 p-2">
+            <p class="fs-5 m-0 p-0 itemsCarrito"></p>
+          </div>
         </div>
       </div>
     </div>
   </nav>
-
-  <!-- aaaaaaaaaaaaaaaaaaaaaaaaa -->
-  <section class="container mt-5">
-    <h1 class="text-center m-5">Nuestros Productos</h1>
-    <div id="filtro">
-    </div>
-    <div class="items">
-      <div class="row">
-
+  <!-- Carrousel -->
+  <div class="cointer-fluid">
+    <div id="carouselExampleSlidesOnly" class="carousel slide carousel-fade tamanoCarrousel" data-bs-ride="carousel">
+      <div class="carousel-inner tamanoCarrousel">
+        <div class="carousel-item active "  data-bs-interval="2000">
+          <img src="./assets/backgrounds/chocolatitoUno.jpg" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item " data-bs-interval="2000">
+          <img src="./assets/backgrounds/chocolatitoDos.jpg" class="d-block w-100" alt="...">
+        </div>
       </div>
+    </div>
+  </div>
+
+  <!-- Titulo y botones de filtrado -->
+  <section class="container-fluid mt-5">
+    <h1 class="text-center m-5">Nuestros Productos</h1>
+    <div class="botonesFiltroFlex" id="filtro">
+      <p class="textoFiltrar">Filtrar productos por su precio :</p>
+      <button type="button" class="btn  mayorFil tamanoBoton">Mayor</button>
+      <button type="button" class="btn  menorFil tamanoBoton">Menor</button>
     </div>
   </section>
 
   <section class="container">
-    <div class="row text-center" id="tienda">
-
+    <div class="row text-center justify-content-center aling-items-center" id="tienda">
     </div>
   </section>
 
@@ -69,18 +82,18 @@
   <section class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
-        <div class="modal-header">
+        <div class="modal-header colorButonCards">
           <h5 class="modal-title" id="exampleModalLabel">Carrito de compra</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
 
-          <div class="row text-center" id="carrito">
+          <div class="row text-center d-flex justify-content-center aling-items-center" id="carrito">
 
           </div>
 
         </div>
-        <div class="modal-footer">
+        <div class="modal-footer colorButonCards">
           <div id="total"></div>
         </div>
       </div>

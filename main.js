@@ -86,18 +86,102 @@ const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 function mostrarProductos(){
 
   const tienda = document.getElementById('tienda');
+
+// Filtro de  Productos por Precio
+
+
+// creacion filtro Mayor Precio
+const btnMayorPrecio = document.querySelector('.mayorFil');
+btnMayorPrecio.addEventListener('click' , ()=>{
+
+  const product = catalogoChocolates.sort((a,b)=>b.precio - a.precio)
+ 
+
+  tienda.innerHTML ='';
+  product.forEach((e)=>{
+
+
+    const div = document.createElement('div');
+
+    div.classList.add('col-12','col-md-4','mb-5','mt-5','d-flex','justify-content-center','align-items-center','gap-5')
+
+    div.innerHTML = `
+    <div class="card text-dark colorCards" style="width: 18rem;">
+    <img src="${e.img}" class="card-img-top w-100" alt="imagen producto">
+    <div class="card-body colorTextoCard">
+      <h5 class="card-title">${e.nombre}</h5>
+      <p class="card-text">${e.descripcion}</p>
+      <p>$ ${e.precio}</p>
+      <button  class="btn colorButonCards" id="${e.id}">Agregar al Carrito</a>
+    </div>
+   </div>`
+
+   div.querySelector('button').addEventListener('click',()=>{
+    agregarCarrito(e.id)
+  
+    })
+  
+    tienda.appendChild(div);
+  })
+
+})
+
+  
+// Fin filtro Mayor Precio
+
+// Inicio Filtro menor Precio
+
+const btnMenorPrecio = document.querySelector('.menorFil');
+
+btnMenorPrecio.addEventListener('click' , ()=>{
+
+  const productMenor = catalogoChocolates.sort((a,b)=>a.precio - b.precio)
+  
+
+  tienda.innerHTML ='';
+  productMenor.forEach((ele)=>{
+
+
+    const div = document.createElement('div');
+
+    div.classList.add('col-12','col-md-4','mb-5','mt-5','d-flex','justify-content-center','align-items-center','gap-5')
+
+    div.innerHTML = `
+    <div class="card text-dark colorCards" style="width: 18rem;">
+    <img src="${ele.img}" class="card-img-top w-100" alt="imagen producto">
+    <div class="card-body colorTextoCard">
+      <h5 class="card-title">${ele.nombre}</h5>
+      <p class="card-text">${ele.descripcion}</p>
+      <p>$ ${ele.precio}</p>
+      <button  class="btn colorButonCards" id="${ele.id}">Agregar al Carrito</a>
+    </div>
+   </div>`
+
+   div.querySelector('button').addEventListener('click',()=>{
+    agregarCarrito(ele.id)
+  
+    })
+  
+    tienda.appendChild(div);
+  })
+
+})
+
+// Fin Filtro Menor Precio
+
+// Imprimir catalogo original
   catalogoChocolates.forEach((p)=>{
 
     let producto = document.createElement('div');
     producto.classList.add('col-12','col-md-4','mb-5','mt-5','d-flex','justify-content-center','align-items-center','gap-5')
     producto.innerHTML = `
-    <div class="card text-dark" style="width: 18rem;">
+    <div class="card text-dark colorCards" style="width: 18rem;">
     <img src="${p.img}" class="card-img-top w-100" alt="imagen producto">
-    <div class="card-body">
+    <div class="card-body colorTextoCard">
       <h5 class="card-title">${p.nombre}</h5>
       <p class="card-text">${p.descripcion}</p>
       <p>$ ${p.precio}</p>
-      <button  class="btn btn-primary" id="${p.id}">Agregar al Carrito</a>
+      <button  class="btn colorButonCards" id="${p.id}">Agregar al Carrito</a>
     </div>
   </div>`
 
@@ -121,15 +205,13 @@ function agregarCarrito(id){
   let productoEnCarrito = carrito.find(producto=>producto.id ===id);
   if(productoEnCarrito){
     productoEnCarrito.cantidad++;
-    console.log(carrito);
+    
     alert(`se agrego otra unidad de ${producto.nombre} a su carrito`)
   
   }
   else{
     producto.cantidad=1;
     carrito.push(producto);
-
-    console.log(carrito);
 
 
     alert(`Se agrego ${producto.nombre} a su carrito de compras!`)
@@ -138,6 +220,7 @@ function agregarCarrito(id){
   localStorage.setItem("carrito", JSON.stringify(carrito));
   
   calcularTotalProductos();
+  mostrarCarrito();
 }
 
 // Funcion para mostrar los items que contiene el carrito
@@ -150,26 +233,41 @@ function mostrarCarrito (){
   
   carrito.forEach((p, index)=>{
     let producto = document.createElement('div');
-    producto.classList.add('col-12','col-md-4','mb-5','mt-5','d-flex','justify-content-center','align-items-center','gap-5')
+    producto.classList.add('col-12','col-md-4','mb-5','mt-5','d-flex','justify-content-center','align-items-center','gap-5' )
     producto.innerHTML = `
     <div class="card text-dark" style="width: 18rem;">
     <img src="${p.img}" class="card-img-top w-100" alt="imagen producto">
-    <div class="card-body">
+    <div class="card-body colorCards colorTextoCard">
       <h5 class="card-title">${p.nombre}</h5>
       <p class="card-text">${p.descripcion}</p>
       <p>$ ${p.precio}</p>
       <p>Cantidad: ${p.cantidad}</p>
-      <button  class="btn btn-danger" id="${p.id}">Eliminar</a>
+      <div class = 'd-flex  justify-content-center gap-3'>
+      <button  class="btn colorButonCards agregarItemCarr" id="${p.id}">Agregar</a>
+      <button  class="btn btn-danger eliminarItemCarr" id="${p.id}">Eliminar</a>
+      </div>
     </div>
   </div>`
 
-  producto.querySelector('button').addEventListener('click', ()=>{
-    eliminarProdCarrito(index)
+  producto.querySelector('.eliminarItemCarr').addEventListener('click', ()=>{
+    eliminarProdCarrito(index);
   })
+  producto.querySelector('.agregarItemCarr').addEventListener('click', ()=>{
+    agregarCarrito(p.id);
+  })
+
   carritoInner.appendChild(producto);
 
   })
+
   localStorage.setItem("carrito", JSON.stringify(carrito));
+
+  let alertaCarrito = document.querySelector('.itemsCarrito');
+  let itemsCarrito = carrito.reduce((acc,actual)=>acc+actual.cantidad,0)
+  alertaCarrito.innerHTML = itemsCarrito ;
+  
+
+  calcularTotalProductos();
 }
 
 // Funcion  para eliminar productos del array de carritos
@@ -194,12 +292,17 @@ function calcularTotalProductos(){
 
   total += p.precio * p.cantidad;
   })
-  console.log(total);
+  
 
   const tota = document.getElementById('total');
-  tota.innerHTML =` <h5>$ ${total}</h5> `
+  tota.innerHTML =` <h5>TOTAL $ ${total}</h5> `
 }
 
 // evento click para ver carrito
 let imprimirBoton = document.getElementById("openCar");
 imprimirBoton.addEventListener("click", mostrarCarrito)
+
+
+// Cuando carga el contenido de la ventana , ejecuta la funcion
+
+window.addEventListener("load", mostrarCarrito);

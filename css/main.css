@@ -3,13 +3,67 @@
 .modalCarrito{
     font-size:50px;
     cursor:pointer;
+    color: rgb(241, 209, 209);
 }
 
 /* navbar */
+
+nav{
+    background-color: rgb(125, 90, 90);
+}
 .margenNav{
     margin-right: 250px;
 }
 .margenLogoNav{
     margin-left: 250px;
-
+    color: rgb(241, 209, 209);
 }
+#colorLogo{
+    color: rgb(241, 209, 209);
+}
+
+
+/* fin nabar */
+
+
+/* Botones de filtro */
+.tamanoBoton{
+    width: 74px;
+    height: fit-content;
+    background-color: rgb(125, 90, 90);
+    color: rgb(241, 209, 209);
+}
+
+.botonesFiltroFlex{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap:15px;
+    margin-right: 50px;
+}
+
+.textoFiltrar{
+    margin-top: 15px;
+}
+
+body{
+    background-color: rgb(250, 242, 242);
+}
+
+/* cards */
+.colorCards{
+    background-color: rgb(125, 90, 90);
+}
+.colorTextoCard{
+    color: rgb(241, 209, 209);}
+
+.colorButonCards{
+    background-color: rgb(241, 209, 209);
+    color: rgb(125, 90, 90);
+}    
+
+/* carrousel */
+.tamanoCarrousel{
+    height: 600px;
+}
+
