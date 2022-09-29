@@ -134,10 +134,9 @@ function agregarCarrito(id){
 
     alert(`Se agrego ${producto.nombre} a su carrito de compras!`)
 
-
   }
   localStorage.setItem("carrito", JSON.stringify(carrito));
-  mostrarCarrito();
+  
   calcularTotalProductos();
 }
 
@@ -170,7 +169,7 @@ function mostrarCarrito (){
   carritoInner.appendChild(producto);
 
   })
-
+  localStorage.setItem("carrito", JSON.stringify(carrito));
 }
 
 // Funcion  para eliminar productos del array de carritos
@@ -200,3 +199,7 @@ function calcularTotalProductos(){
   const tota = document.getElementById('total');
   tota.innerHTML =` <h5>$ ${total}</h5> `
 }
+
+// evento click para ver carrito
+let imprimirBoton = document.getElementById("openCar");
+imprimirBoton.addEventListener("click", mostrarCarrito)
