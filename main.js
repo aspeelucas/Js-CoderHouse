@@ -78,7 +78,8 @@ const catalogoChocolates = [
 ];
 
 // array de carrito donde se van a ir acumulando los productos que se van seleccionando
-const carrito =[]
+
+const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 // Funcion para mostrar el catalogo de productos en el index principal en forma de cards, crea un div y cards para cada producto del catalogo.
 
@@ -122,7 +123,7 @@ function agregarCarrito(id){
     productoEnCarrito.cantidad++;
     console.log(carrito);
     alert(`se agrego otra unidad de ${producto.nombre} a su carrito`)
-    
+  
   }
   else{
     producto.cantidad=1;
@@ -130,11 +131,12 @@ function agregarCarrito(id){
 
     console.log(carrito);
 
+
     alert(`Se agrego ${producto.nombre} a su carrito de compras!`)
 
 
   }
-  
+  localStorage.setItem("carrito", JSON.stringify(carrito));
   mostrarCarrito();
   calcularTotalProductos();
 }
@@ -146,6 +148,7 @@ function mostrarCarrito (){
   let carritoInner =carri.querySelector('#carrito');
 
   carritoInner.innerHTML ="";
+  
   carrito.forEach((p, index)=>{
     let producto = document.createElement('div');
     producto.classList.add('col-12','col-md-4','mb-5','mt-5','d-flex','justify-content-center','align-items-center','gap-5')
