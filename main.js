@@ -79,149 +79,11 @@ const catalogoChocolates = [
 
 // array de carrito donde se van a ir acumulando los productos que se van seleccionando
 
-const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
-// Funcion para mostrar el catalogo de productos en el index principal en forma de cards, crea un div y cards para cada producto del catalogo.
-
-function mostrarProductos(){
-
-  const tienda = document.getElementById('tienda');
-
-// Filtro de  Productos por Precio
-
-
-// creacion filtro Mayor Precio
-const btnMayorPrecio = document.querySelector('.mayorFil');
-btnMayorPrecio.addEventListener('click' , ()=>{
-
-  const product = catalogoChocolates.sort((a,b)=>b.precio - a.precio)
- 
-
-  tienda.innerHTML ='';
-  product.forEach((e)=>{
-
-
-    const div = document.createElement('div');
-
-    div.classList.add('col-12','col-md-4','mb-5','mt-5','d-flex','justify-content-center','align-items-center','gap-5')
-
-    div.innerHTML = `
-    <div class="card text-dark colorCards" style="width: 18rem;">
-    <img src="${e.img}" class="card-img-top w-100" alt="imagen producto">
-    <div class="card-body colorTextoCard">
-      <h5 class="card-title">${e.nombre}</h5>
-      <p class="card-text">${e.descripcion}</p>
-      <p>$ ${e.precio}</p>
-      <button  class="btn colorButonCards" id="${e.id}">Agregar al Carrito</a>
-    </div>
-   </div>`
-
-   div.querySelector('button').addEventListener('click',()=>{
-    agregarCarrito(e.id)
-  
-    })
-  
-    tienda.appendChild(div);
-  })
-
-})
-
-  
-// Fin filtro Mayor Precio
-
-// Inicio Filtro menor Precio
-
-const btnMenorPrecio = document.querySelector('.menorFil');
-
-btnMenorPrecio.addEventListener('click' , ()=>{
-
-  const productMenor = catalogoChocolates.sort((a,b)=>a.precio - b.precio)
-  
-
-  tienda.innerHTML ='';
-  productMenor.forEach((ele)=>{
-
-
-    const div = document.createElement('div');
-
-    div.classList.add('col-12','col-md-4','mb-5','mt-5','d-flex','justify-content-center','align-items-center','gap-5')
-
-    div.innerHTML = `
-    <div class="card text-dark colorCards" style="width: 18rem;">
-    <img src="${ele.img}" class="card-img-top w-100" alt="imagen producto">
-    <div class="card-body colorTextoCard">
-      <h5 class="card-title">${ele.nombre}</h5>
-      <p class="card-text">${ele.descripcion}</p>
-      <p>$ ${ele.precio}</p>
-      <button  class="btn colorButonCards" id="${ele.id}">Agregar al Carrito</a>
-    </div>
-   </div>`
-
-   div.querySelector('button').addEventListener('click',()=>{
-    agregarCarrito(ele.id)
-  
-    })
-  
-    tienda.appendChild(div);
-  })
-
-})
-
-// Fin Filtro Menor Precio
-
-// Imprimir catalogo original
-  catalogoChocolates.forEach((p)=>{
-
-    let producto = document.createElement('div');
-    producto.classList.add('col-12','col-md-4','mb-5','mt-5','d-flex','justify-content-center','align-items-center','gap-5')
-    producto.innerHTML = `
-    <div class="card text-dark colorCards" style="width: 18rem;">
-    <img src="${p.img}" class="card-img-top w-100" alt="imagen producto">
-    <div class="card-body colorTextoCard">
-      <h5 class="card-title">${p.nombre}</h5>
-      <p class="card-text">${p.descripcion}</p>
-      <p>$ ${p.precio}</p>
-      <button  class="btn colorButonCards" id="${p.id}">Agregar al Carrito</a>
-    </div>
-  </div>`
-
-    tienda.appendChild(producto);
-
-    producto.querySelector('button').addEventListener('click',()=>
-    agregarCarrito(p.id)
-    
-    )
-  }
-  )
- 
-}
 
 mostrarProductos();
 
-// Funcion para agregar items al carrito si no estan o sumarlos si ya se encuentran en el mismo
-
-function agregarCarrito(id){
-  let producto = catalogoChocolates.find(producto=> producto.id === id);
-  let productoEnCarrito = carrito.find(producto=>producto.id ===id);
-  if(productoEnCarrito){
-    productoEnCarrito.cantidad++;
-    
-    alert(`se agrego otra unidad de ${producto.nombre} a su carrito`)
-  
-  }
-  else{
-    producto.cantidad=1;
-    carrito.push(producto);
-
-
-    alert(`Se agrego ${producto.nombre} a su carrito de compras!`)
-
-  }
-  localStorage.setItem("carrito", JSON.stringify(carrito));
-  
-  calcularTotalProductos();
-  mostrarCarrito();
-}
 
 // Funcion para mostrar los items que contiene el carrito
 
@@ -230,21 +92,23 @@ function mostrarCarrito (){
   let carritoInner =carri.querySelector('#carrito');
 
   carritoInner.innerHTML ="";
+
+  // ( AQUI AGREGUE DESTRUCTURACION EN PARAMETROS)
   
-  carrito.forEach((p, index)=>{
+  carrito.forEach(({img,nombre,descripcion,precio,cantidad,id }, index)=>{
     let producto = document.createElement('div');
     producto.classList.add('col-12','col-md-4','mb-5','mt-5','d-flex','justify-content-center','align-items-center','gap-5' )
     producto.innerHTML = `
     <div class="card text-dark" style="width: 18rem;">
-    <img src="${p.img}" class="card-img-top w-100" alt="imagen producto">
+    <img src="${img}" class="card-img-top w-100" alt="imagen producto">
     <div class="card-body colorCards colorTextoCard">
-      <h5 class="card-title">${p.nombre}</h5>
-      <p class="card-text">${p.descripcion}</p>
-      <p>$ ${p.precio}</p>
-      <p>Cantidad: ${p.cantidad}</p>
+      <h5 class="card-title">${nombre}</h5>
+      <p class="card-text">${descripcion}</p>
+      <p>$ ${precio}</p>
+      <p>Cantidad: ${cantidad}</p>
       <div class = 'd-flex  justify-content-center gap-3'>
-      <button  class="btn colorButonCards agregarItemCarr" id="${p.id}">Agregar</a>
-      <button  class="btn btn-danger eliminarItemCarr" id="${p.id}">Eliminar</a>
+      <button  class="btn colorButonCards agregarItemCarr" id="${id}">Agregar</a>
+      <button  class="btn btn-danger eliminarItemCarr" id="${id}">Eliminar</a>
       </div>
     </div>
   </div>`
@@ -253,7 +117,7 @@ function mostrarCarrito (){
     eliminarProdCarrito(index);
   })
   producto.querySelector('.agregarItemCarr').addEventListener('click', ()=>{
-    agregarCarrito(p.id);
+    agregarCarrito(id);
   })
 
   carritoInner.appendChild(producto);
@@ -267,20 +131,6 @@ function mostrarCarrito (){
   alertaCarrito.innerHTML = itemsCarrito ;
   
 
-  calcularTotalProductos();
-}
-
-// Funcion  para eliminar productos del array de carritos
-
-function eliminarProdCarrito(indice){
-  carrito[indice].cantidad--;
-  
-  alert(`Se elimino una unid de ${carrito[indice].nombre}`);
-
-  if(carrito[indice].cantidad ===0){
-    carrito.splice(indice,1);
-  }
-  mostrarCarrito();
   calcularTotalProductos();
 }
 
