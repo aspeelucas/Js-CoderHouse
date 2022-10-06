@@ -93,8 +93,6 @@ function mostrarCarrito (){
 
   carritoInner.innerHTML ="";
 
-  // ( AQUI AGREGUE DESTRUCTURACION EN PARAMETROS)
-  
   carrito.forEach(({img,nombre,descripcion,precio,cantidad,id }, index)=>{
     let producto = document.createElement('div');
     producto.classList.add('col-12','col-md-4','mb-5','mt-5','d-flex','justify-content-center','align-items-center','gap-5' )
@@ -115,9 +113,25 @@ function mostrarCarrito (){
 
   producto.querySelector('.eliminarItemCarr').addEventListener('click', ()=>{
     eliminarProdCarrito(index);
+    Toastify({
+      text : 'PRODUCTO ELIMINADO',
+      duration : 2000,
+      style :{
+        color:"#F3E1E1",
+        background :"#FA7070"
+      }
+    }).showToast();
   })
   producto.querySelector('.agregarItemCarr').addEventListener('click', ()=>{
     agregarCarrito(id);
+    Toastify({
+      text : 'SE AÑADIO EL PRODUCTO',
+      duration : 2000,
+      style :{
+        color:"#0F0F0F",
+        background :"#C0EDA6"
+      }
+    }).showToast();
   })
 
   carritoInner.appendChild(producto);
@@ -125,6 +139,7 @@ function mostrarCarrito (){
   })
 
   localStorage.setItem("carrito", JSON.stringify(carrito));
+// contador de unidades icono carrito de compras
 
   let alertaCarrito = document.querySelector('.itemsCarrito');
   let itemsCarrito = carrito.reduce((acc,actual)=>acc+actual.cantidad,0)

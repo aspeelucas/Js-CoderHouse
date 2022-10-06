@@ -35,6 +35,15 @@ function mostrarProductos(){
   
      div.querySelector('button').addEventListener('click',()=>{
       agregarCarrito(e.id)
+
+      Toastify({
+        text : 'SE AÑADIO AL CARRITO',
+        duration : 2000,
+        style :{
+          color:"#7D5A5A",
+          background :"#F1D1D1"
+        }
+      }).showToast();
     
       })
     
@@ -76,6 +85,15 @@ function mostrarProductos(){
   
      div.querySelector('button').addEventListener('click',()=>{
       agregarCarrito(ele.id)
+
+      Toastify({
+        text : 'SE AÑADIO AL CARRITO',
+        duration : 2000,
+        style :{
+          color:"#7D5A5A",
+          background :"#F1D1D1"
+        }
+      }).showToast();
     
       })
     
@@ -104,10 +122,20 @@ function mostrarProductos(){
   
       tienda.appendChild(producto);
   
-      producto.querySelector('button').addEventListener('click',()=>
-      agregarCarrito(id)
+      producto.querySelector('button').addEventListener('click',()=>{
+        
+        agregarCarrito(id)
+        
+       Toastify({
+         text : 'SE AÑADIO AL CARRITO',
+         duration : 2000,
+         style :{
+           color:"#7D5A5A",
+           background :"#F1D1D1"
+         }
+       }).showToast();
       
-      )
+      })
     }
     )
    

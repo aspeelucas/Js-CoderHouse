@@ -15,9 +15,6 @@ function agregarCarrito(id){
       carrito=[...carrito, producto];
     }
   
-    // TERNARIO EN ALERT
-    alert(productoEnCarrito ?`se agrego otra unidad de ${producto.nombre} a su carrito`: `Se agrego ${producto.nombre} a su carrito de compras!`)
-  
     localStorage.setItem("carrito", JSON.stringify(carrito));
     
     calcularTotalProductos();
