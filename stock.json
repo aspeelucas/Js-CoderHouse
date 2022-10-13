@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "nombre": "Piezas de Chocolate",
+    "img": "./assets/productos/piezasdechocolate.jpg",
+    "precio": 100,
+    "descripcion": "Caja que incluye 21 unidades variadas de chocolates",
+    "cantidad": 1
+  },
+  {
+    "id": 2,
+    "nombre": "Castagna de Coco",
+    "img": "./assets/productos/castagnadecoco.jpg",
+    "precio": 200,
+    "descripcion": "Bolsa de castagnas de Coco de 500grs",
+    "cantidad": 1
+  },
+  {
+    "id": 3,
+    "nombre": "Chocolate Sin Azucar",
+    "img": "./assets/productos/chocolatesinazucar.jpg",
+    "precio": 150,
+    "descripcion": "Caja de 400grs de Chocolate Sin Azucar",
+    "cantidad": 1
+  },
+  {
+    "id": 4,
+    "nombre": "Gatito De Chocolate",
+    "img": "./assets/productos/gatochocolate.png",
+    "precio": 330,
+    "descripcion": "Gatito de Chocolate relleno de dulce de leche",
+    "cantidad": 1
+  },
+  {
+    "id": 5,
+    "nombre": "Marroc",
+    "img": "./assets/productos/marroc.jpg",
+    "precio": 120,
+    "descripcion": "Barra de chocolate marroc de 200grs",
+    "cantidad": 1
+  },
+  {
+    "id": 6,
+    "nombre": "Ositos de Chocolate",
+    "img": "./assets/productos/osito_blanco.jpg",
+    "precio": 220,
+    "descripcion": "Caja de Ositos de Chocolate Blanco 150grs",
+    "cantidad": 1
+  },
+  {
+    "id": 7,
+    "nombre": "Tableta de Pistacho",
+    "img": "./assets/productos/tablet_pistacho.jpg",
+    "precio": 400,
+    "descripcion": "Tableta de chocolate Negro con Pistacho",
+    "cantidad": 1
+  },
+  {
+    "id": 8,
+    "nombre": "Chocolate Amargo",
+    "img": "./assets/productos/tabletaamargo.jpg",
+    "precio": 350,
+    "descripcion": "Tableta de chocolate amargo 300grs",
+    "cantidad": 1
+  },
+  {
+    "id": 9,
+    "nombre": "Chocolate Blanco",
+    "img": "./assets/productos/tabletablanco.jpg",
+    "precio": 260,
+    "descripcion": "Barra de chocolate blanco de 300grs",
+    "cantidad": 1
+  }
+]

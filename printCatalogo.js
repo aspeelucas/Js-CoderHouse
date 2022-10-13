@@ -1,11 +1,10 @@
 // Funcion para mostrar el catalogo de productos en el index principal en forma de cards, crea un div y cards para cada producto del catalogo.
 
-function mostrarProductos(){
+async function mostrarProductos() {
 
     const tienda = document.getElementById('tienda');
-  
-  // Filtro de  Productos por Precio
-  
+    const response = await fetch ('./stock.json');
+    const catalogoChocolates = await response.json();
   
   // creacion filtro Mayor Precio
   const btnMayorPrecio = document.querySelector('.mayorFil');
@@ -139,4 +138,4 @@ function mostrarProductos(){
     }
     )
    
-  }
+  };

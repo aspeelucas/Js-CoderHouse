@@ -1,6 +1,10 @@
 // Funcion para agregar items al carrito si no estan o sumarlos si ya se encuentran en el mismo
 
-function agregarCarrito(id){
+async function agregarCarrito(id){
+
+    const response = await fetch('./stock.json');
+    const catalogoChocolates = await response.json();
+
     let producto = catalogoChocolates.find(producto=> producto.id === id);
     let productoEnCarrito = carrito.find(producto=>producto.id ===id);
   
