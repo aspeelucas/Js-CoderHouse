@@ -2,12 +2,18 @@
 // array de carrito donde se van a ir acumulando los productos que se van seleccionando
 
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-
+let vaciarCarts = document.getElementById('vaciarCarrito');
+let finalizarCompra = document.getElementById ('finalizarC');
+// evento click para ver carrito
+let imprimirBoton = document.getElementById("openCar");
+imprimirBoton.addEventListener("click", mostrarCarrito());
+let formulario = document.getElementById('formularioPrincipal');
+let purchaseModal;
 
 mostrarProductos();
 
 
-// Funcion para mostrar los items que contiene el carrito
+// Funcion para renderizar los items que contiene el carrito
 
 function mostrarCarrito (){
   const carri = document;
@@ -31,7 +37,8 @@ function mostrarCarrito (){
       <button  class="btn btn-danger eliminarItemCarr" id="${id}">Eliminar</a>
       </div>
     </div>
-  </div>`
+  </div>
+    `
 
   producto.querySelector('.eliminarItemCarr').addEventListener('click', ()=>{
     eliminarProdCarrito(index);
@@ -61,6 +68,7 @@ function mostrarCarrito (){
   })
 
   localStorage.setItem("carrito", JSON.stringify(carrito));
+  
 // contador de unidades icono carrito de compras
 
   let alertaCarrito = document.querySelector('.itemsCarrito');
@@ -68,7 +76,13 @@ function mostrarCarrito (){
   alertaCarrito.innerHTML = itemsCarrito ;
   
 
+ 
+
   calcularTotalProductos();
+
+  bloqueoButtonVaciar ();
+
+  bloqueoButtonFinalizar()
 }
 
 // Funcion para calcular precio total de mis productos en el carrito
@@ -85,11 +99,102 @@ function calcularTotalProductos(){
   tota.innerHTML =` <h5>TOTAL $ ${total}</h5> `
 }
 
-// evento click para ver carrito
-let imprimirBoton = document.getElementById("openCar");
-imprimirBoton.addEventListener("click", mostrarCarrito)
+
 
 
 // Cuando carga el contenido de la ventana , ejecuta la funcion
 
 window.addEventListener("load", mostrarCarrito);
+
+
+// Funcion que vacia el carrito de compra y envia una alerta para confirmar dicha accion
+
+vaciarCarts.addEventListener('click', ()=>{
+  Swal.fire({
+    title: 'Seguro desea vaciar el carrito ?',
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#7D5A5A',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Si, vaciar'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      vaciarTodo();
+      Swal.fire(
+        'Carrito Eliminado',
+        'Su carrito esta vacio',
+        'success'
+      )
+    }
+  })
+})
+
+
+function vaciarTodo(){
+  carrito= [];
+  mostrarCarrito();
+  calcularTotalProductos();
+  console.log(carrito)
+}
+
+// finalizar compra 
+
+finalizarCompra.addEventListener('click', ()=>{
+  guardarModalYMostrar();
+  console.log(finalizarCompra);
+})
+
+// Funciones para bloquear los botones de "Finalizar compra" y "Vaciar carrito" si no hay productos en el carrito de compras
+
+function bloqueoButtonVaciar () {
+  if(!Boolean(carrito.length)) {vaciarCarts.setAttribute('disabled', 'true')}
+  else(vaciarCarts.removeAttribute('disabled'));
+};
+
+function bloqueoButtonFinalizar(){
+  
+  if(!Boolean(carrito.length)) {finalizarCompra.setAttribute('disabled', 'true')}
+  else(finalizarCompra.removeAttribute('disabled'));
+
+};
+
+// formulario.addEventListener('submit',(e)=>{
+//   Swal.fire({
+//     icon: 'success',
+//     title: 'Compra Exitosa',
+//     text: 'Gracias por elegirnos!',
+//     timer: 4000,
+//   })
+// e.preventDefault();
+// formulario.reset();
+// vaciarTodo(); 
+// });
+  
+
+
+// Funciones del Form de pago, renderiza , requiere rellenar campos y una vez q se preciona el boton "PAGAR" vacia el carrito de compras, resetea el formulario, arroja una alerta y cierra el modal
+
+const guardarModalYMostrar = () => {
+  //Renderiza el modal del formulario de compra
+  purchaseModal = new bootstrap.Modal("#modalFinalizaCompra", { focus: true });
+  purchaseModal.show();
+
+};
+
+const mostrarSwalYOcultarModal = () => {
+  Swal.fire({
+       icon: 'success',
+       title: 'Compra Exitosa',
+      text: 'Gracias por elegirnos!',
+       timer: 4000,
+      })
+   vaciarTodo();
+   purchaseModal.hide();
+   delete purchaseModal;
+};
+
+formulario.addEventListener('submit',(e)=>{
+  formulario.reset();
+  e.preventDefault();
+  mostrarSwalYOcultarModal()
+} )

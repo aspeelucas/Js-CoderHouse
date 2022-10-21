@@ -36,11 +36,11 @@
             <a class="nav-link" href="#" id="colorLogo">Contacto</a>
           </li>
         </ul>
-        <div class="modalCarrito position-relative" id="openCar">
+        <div class="modalCarrito position-relative" id="openCar" >
           <img src="./assets/logos//cartwhitetree.png" class="nav-link dropdown-toggle img-fluid me-3" height="70px"
-            width="80px" data-bs-toggle="modal" data-bs-target="#exampleModal"></img>
+            width="80px" data-bs-toggle="modal" data-bs-target="#carritoComp"></img>
           <div class="position-absolute top-0 end-0   m-0 p-2">
-            <p class="fs-5 m-0 p-0 itemsCarrito"></p>
+            <p class="fs-5 m-0 p-0 "></p>
           </div>
         </div>
       </div>
@@ -59,6 +59,11 @@
       </div>
     </div>
   </div>
+<!-- icono carrito -->
+  <div class=" btn-carritoMovil "data-bs-toggle="modal" data-bs-target="#carritoComp" > 
+    <img src="./assets/logos/cartmovil.png"  class="" alt="">
+    <p class="itemsCarrito contadorNumero">0</p>
+  </div>
 
   <!-- Titulo y botones de filtrado -->
   <section class="container-fluid mt-5">
@@ -69,14 +74,12 @@
       <button type="button" class="btn  menorFil tamanoBoton">Menor</button>
     </div>
   </section>
-
   <section class="container">
-    <div class="row text-center justify-content-center aling-items-center" id="tienda">
+    <div class="row text-center justify-content-center aling-items-center margenCatalogo" id="tienda">
     </div>
   </section>
-
   <!-- MODAL CARRITO DE COMPRAS -->
-  <section class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <section class="modal fade" id="carritoComp" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <div class="modal-header colorButonCards">
@@ -84,23 +87,111 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-
           <div class="row text-center d-flex justify-content-center aling-items-center" id="carrito">
-
           </div>
-
         </div>
-        <div class="modal-footer colorButonCards">
+        <div class="modal-footer colorButonCards dflexButonns">
+          <div class="d-flex gap-3">
+            <!-- TRABAJANDO AQUI -->
+            <button type="button" class="btn  finalizarCompra" id="finalizarC" data-bs-toggle="modal"
+              data-bs-dismiss="modal" >FINALIZAR COMPRA</button>
+            <button type="button" class="btn  btn-danger" id="vaciarCarrito">VACIAR CARRITO</button>
+          </div>
           <div id="total"></div>
         </div>
       </div>
     </div>
   </section>
+  <!-- MODAL FINALIZAR COMPRA -->
+  <div class="modal fade" id="modalFinalizaCompra" tabindex="-1" aria-hidden="true" aria-labelledby="modalTittle">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header headerForm">
+          <h5 class="modal-title text-center " id="modalTittle">Finaliza tu compra</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body container">
+          <form class="row" id="formularioPrincipal">
+            <div class="col-auto ">
+              <label for="nombreApellido" class="form-label">Nombre y Apellido</label>
+              <input type="text" class="form-control inputFormArea" id="nombreApellido" placeholder="Escribe tu Nombre">
+            </div>
 
+            <div class="col-auto">
+              <label for="emailInput" class="form-label">Correo electronico</label>
+              <input type="email" class="form-control inputFormArea" id="emailInput" placeholder="Escribe tu email">
+            </div>
+            <div class="col-12 mt-3">
+              <label for="inputDireccion" class="form-label">Direccion</label>
+              <input type="text" class="form-control inputFormArea" id="inputDireccion" placeholder="Escribe tu direccion">
+            </div>
+            <div class="col-5 mt-3">
+              <label for="ciudad" class="form-label">Ciudad</label>
+              <input type="text" class="form-control inputFormArea" id="ciudad" placeholder="Ingresa tu Ciudad">
+            </div>
+            <div class="col-3 mt-3">
+              <label for="codPostal" class="form-label">Codigo Postal</label>
+              <input type="text" class="form-control inputFormArea" id="codPostal" placeholder="Codigo" required>
+            </div>
+            <div class="col-4 mt-3">
+              <label for="Pais" class="form-label">Pais</label>
+              <input type="text" class="form-control inputFormArea" id="Pais" placeholder="Ingresa Pais">
+            </div>
+            <div class="col-12 mt-3 ms-1 textoTarjeta">
+              <p class="textoTarjeta">INGRESE SU TARJETA</p>
+            </div>
+            <div class="col-12 divTarjetas inputFormArea m-0">
+              <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                class="bi bi-credit-card" viewBox="0 0 16 16">
+                <path
+                  d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v1h14V4a1 1 0 0 0-1-1H2zm13 4H1v5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V7z" />
+                <path d="M2 10a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1v-1z" />
+              </svg>
+              <img src="./assets/logos/paypal.svg " class="paypal " alt="Logo Paypal">
+              <img src="./assets/logos/mastercard.svg" class="creditCards" alt=" Logo MasterCard">
+              <img src="./assets/logos/visa-svgrepo-com.svg" class="creditCards ms-2" alt="Logo Visa">
+            </div>
+            <div class="col-12">
+              <label for="numeroTarjeta" class=" form-label">Numero de Tarjeta</label>
+              <input type="number" class="form-control inputFormArea" id="numeroTarjeta" placeholder="XXX-XXX-XXX">
+            </div>
+            <div class="col-7">
+              <label for="mes" class="form-label">Fecha de vencimiento</label>
+              <input type="month" class="form-control inputFormArea" id="mes">
+            </div>
+            <div class="col-5">
+              <label for="codSeg" class="form-label">Cod.Seg</label>
+              <input type="number" class="form-control inputFormArea" id="codSeg" placeholder="XXX">
+            </div>
+            <div class=" col-12 d-flex justify-content-center aling-items-center gap-3 mt-5">
+              <button type="submit" class="btn btn-primary" id="pagar">PAGAR</button>
+              <a class="btn btn-secondary" href="#carritoComp" data-bs-toggle="modal" data-bs-dismiss="modal"
+                role="button">CANCELAR</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class=" m-0">
+    <div class="m-0">
+      <p class="mb-0 alturaBoxFooter"><a href="#colorLogo" class="textoFooter">Home</a> </p>
+      <p class="mb-0 alturaBoxFooter cajaMedio"><a href="#tienda" class="textoFooter"> Producto</a></p>
+      <p class="mb-0 alturaBoxFooter cajaBaja"><a href="" class="textoFooter"> Contacto</a></p>
+    </div>
+    <div class="alturaBoxFooter redesBox">
+      <h5 class="mb-0 text-white">Nuestras redes</h5>
+      <div class="redesIconos">
+        <img src="./assets/redes/facebook.png" class="tamanoRedes" alt=""><img src="./assets/redes/instagram.png"
+          class="tamanoRedes" alt=""><img src="/assets/redes/twitter.png" class="tamanoRedes" alt="">
+      </div>
+    </div>
+  </footer>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
     crossorigin="anonymous"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="./Js/printCatalogo.js"></script>
   <script src="./Js/eliminarProdu.js"></script>
   <script src="./Js/agregarItemsCarrito.js"></script>

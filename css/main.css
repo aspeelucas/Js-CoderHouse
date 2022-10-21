@@ -1,71 +1,186 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
 
 /* carrito de compras */
-.modalCarrito{
-    font-size:50px;
-    cursor:pointer;
-    color: rgb(241, 209, 209);
+.modalCarrito {
+  font-size: 50px;
+  cursor: pointer;
+  color: rgb(241, 209, 209);
 }
 
 /* navbar */
 
-nav{
-    background-color: rgb(125, 90, 90);
+nav {
+  background-color: rgb(43, 31, 31);
 }
-.margenNav{
-    margin-right: 250px;
+.margenNav {
+  margin-right: 250px;
 }
-.margenLogoNav{
-    margin-left: 250px;
-    color: rgb(241, 209, 209);
+.margenLogoNav {
+  margin-left: 250px;
+  color: rgb(241, 209, 209);
 }
-#colorLogo{
-    color: rgb(241, 209, 209);
+#colorLogo {
+  color: rgb(241, 209, 209);
 }
 
-
-/* fin nabar */
-
+/* fin navbar */
 
 /* Botones de filtro */
-.tamanoBoton{
-    width: 74px;
-    height: fit-content;
-    background-color: rgb(125, 90, 90);
-    color: rgb(241, 209, 209);
+.tamanoBoton {
+  width: 74px;
+  height: fit-content;
+  background-color: rgb(125, 90, 90);
+  color: rgb(241, 209, 209);
 }
 
-.botonesFiltroFlex{
-    display: flex;
-    justify-content: end;
-    align-items: center;
-    gap:15px;
-    margin-right: 50px;
+.botonesFiltroFlex {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 15px;
+  margin-right: 50px;
 }
 
-.textoFiltrar{
-    margin-top: 15px;
+.textoFiltrar {
+  margin-top: 15px;
 }
 
-body{
-    background-color: rgb(250, 242, 242);
+body {
+  background-color: rgb(250, 242, 242);
 }
 
 /* cards */
-.colorCards{
-    background-color: rgb(125, 90, 90);
+.colorCards {
+  background-color: rgb(125, 90, 90);
 }
-.colorTextoCard{
-    color: rgb(241, 209, 209);}
+.colorTextoCard {
+  color: rgb(241, 209, 209);
+}
 
-.colorButonCards{
-    background-color: rgb(241, 209, 209);
-    color: rgb(125, 90, 90);
-}    
+.colorButonCards {
+  background-color: rgb(241, 209, 209);
+  color: rgb(125, 90, 90);
+}
 
 /* carrousel */
-.tamanoCarrousel{
-    height: 600px;
+.tamanoCarrousel {
+  height: 600px;
+}
+
+/* Botones del carrito de compra */
+
+.dflexButonns {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.finalizarCompra {
+  background-color: rgb(125, 90, 90);
+  color: rgb(241, 209, 209);
 }
 
 
+/* Form pago */
+.headerForm{
+  background-color: rgb(241, 209, 209);
 
+}
+
+.inputFormArea{
+  background-color: rgb(238, 215, 215);
+}
+
+/* Imagenes creditCards */
+.creditCards {
+  width: 32px;
+  height: fit-content;
+}
+
+.paypal {
+  width: 55px;
+  height: fit-content;
+}
+
+.textoTarjeta {
+  height: 24px;
+  width: fit-content;
+}
+
+.divTarjetas {
+  height: fit-content;
+  margin-left: 5px;
+}
+
+/* Footer */
+.textoFooter {
+  text-decoration: none;
+  color: white;
+}
+
+footer {
+  margin-top: 100px;
+  display: flex;
+  gap: 200px;
+  height: 400px;
+  align-items: center;
+  background-color: rgb(43, 31, 31);
+}
+
+.alturaBoxFooter {
+  margin-left: 100px;
+  padding-bottom: 10px;
+}
+
+.redesBox {
+  margin-bottom: 10px;
+}
+
+.margenCatalogo {
+  margin-bottom: 200px;
+}
+
+.tamanoRedes {
+  width: 40px;
+}
+
+.redesIconos {
+  margin-top: 30px;
+  display: flex;
+  gap: 30px;
+}
+
+/* boton fixed carrito */
+
+.btn-carritoMovil {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  width: 100px;
+  height: 100px;
+  background-color: rgb(247, 228, 201);
+  border-radius: 100%;
+  bottom: 30px;
+  left: 10px;
+
+  box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.3);
+  z-index: 100;
+}
+.btn-carritoMovil img {
+  width: 50%;
+  height: 50%;
+}
+
+.contadorNumero {
+  margin-bottom: 50px;
+}
+
+.btn-carritoMovil:hover {
+  background-color: rgb(241, 219, 219);
+  cursor: pointer;
+}
