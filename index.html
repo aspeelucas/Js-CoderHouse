@@ -16,16 +16,15 @@
 </head>
 
 <body>
-
-  <nav class="navbar navbar-expand-lg navbar-light  ">
-    <div class="container-fluid ">
-      <a class="navbar-brand margenLogoNav" href="./index.html" id="colorLogo">La Chocolateria</a>
+  <nav class="navbar navbar-expand-xl navbar-light mb-0 ">
+    <div class="container-fluid p-0">
+      <a class="navbar-brand " href="./index.html" id="colorLogoChoco">La Chocolateria</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse margenNav" id="navbarSupportedContent">
-        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 ">
+      <div class="collapse navbar-collapse margenNav text-center" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-3">
           <li class="nav-item">
             <a class="nav-link " aria-current="page" href="./index.html" id="colorLogo">Home</a>
           </li>
@@ -33,41 +32,82 @@
             <a class="nav-link" href="#tienda" id="colorLogo">Productos</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#" id="colorLogo">Contacto</a>
+            <a class="nav-link" href="#" id="colorLogo" data-bs-toggle="modal" data-bs-target="#carritoComp">Mi
+              Carrito</a>
           </li>
         </ul>
-        <div class="modalCarrito position-relative" id="openCar" >
+        <div class="modalCarrito position-relative displayNoneMd" id="openCar">
           <img src="./assets/logos//cartwhitetree.png" class="nav-link dropdown-toggle img-fluid me-3" height="70px"
-            width="80px" data-bs-toggle="modal" data-bs-target="#carritoComp"></img>
+            width="65px" data-bs-toggle="modal" data-bs-target="#carritoComp"></img>
           <div class="position-absolute top-0 end-0   m-0 p-2">
-            <p class="fs-5 m-0 p-0 "></p>
+            <p class="fs-5 m-0 p-0 itemsCarrito"></p>
           </div>
         </div>
       </div>
     </div>
   </nav>
   <!-- Carrousel -->
-  <div class="cointer-fluid">
+  <div class="cointer">
     <div id="carouselExampleSlidesOnly" class="carousel slide carousel-fade tamanoCarrousel" data-bs-ride="carousel">
-      <div class="carousel-inner tamanoCarrousel">
-        <div class="carousel-item active " data-bs-interval="2000">
-          <img src="./assets/backgrounds/chocolatitoUno.jpg" class="d-block w-100" alt="...">
+      <div class="carousel-inner tamanoCarrousel w-auto">
+        <div class="carousel-item active tamanoCarrousel" data-bs-interval="1500">
+          <img src="./assets/backgrounds/chocolatenegroweb.jpg" width="1920" class="d-block  imagenCarrousel" alt="...">
+          <div class="carousel-caption text-center captionCenter textoCarrousel">
+            <p class=" textElaboramos">Fabricamos para vos</p>
+            <h1 class=" textTituloCarousel">Chocolate hecho con amor para el mundo</h2>
+              <p class=" textUsamosCarousel">Usamos la mejor materia prima, los chocholates son deliciosos
+                que esperas para probarlos?</p>
+          </div>
         </div>
-        <div class="carousel-item " data-bs-interval="2000">
-          <img src="./assets/backgrounds/chocolatitoDos.jpg" class="d-block w-100" alt="...">
+        <div class="carousel-item " data-bs-interval="1500">
+          <img src="./assets/backgrounds/chocolateblanco.jpg" width="1920" class="d-block w-100 imagenCarrousel"
+            alt="...">
+          <div class="carousel-caption text-center  captionCenterDos">
+            <h2 class=" tituloSecondSlide">Productos </h2>
+            <p class=" textoSecondSlide">100% Artesanales</p>
+            <div class="contendorSlidesCatalogosss">
+              <a type="button" class="btn  botonSlidesCatalogo" href="#tienda" id="">VER CATALOGO</a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
-<!-- icono carrito -->
-  <div class=" btn-carritoMovil "data-bs-toggle="modal" data-bs-target="#carritoComp" > 
-    <img src="./assets/logos/cartmovil.png"  class="" alt="">
-    <p class="itemsCarrito contadorNumero">0</p>
+
+  <!-- Box INFO -->
+  <div class="boxInfoPedidos">
+    <p>Fabricados en la Provincia de La Rioja • Argentina </p>
+  </div>
+  <div class="boxInfoReferidaEnvio">
+    <div class="boxInfoReferidaCold">
+      <div>
+        <img src="./assets/varios/copodenieve.png" class="copodenieve" alt="">
+      </div>
+      <div><p class="pruebareloquita">Envases aptos para refriquerar en el congelador</p></div>
+    </div>
+    <div class="boxInfoReferidaCold">
+      <div>
+        <img src="./assets/varios/delivery.png" class="copodenieve" alt="">
+      </div>
+      <div><p class="pruebareloquita">Envios a todo el pais 100% seguros</p></div>
+    </div>
+    <div class="boxInfoReferidaCold">
+      <div>
+        <img src="./assets/varios/star.png" class="copodenieve" alt="">
+      </div>
+      <div><p class="pruebareloquita">Contamos con una calificacion 4.5/5 en Google</p></div>
+    </div>
+  </div>
+
+  <!-- icono carrito -->
+  <div class=" btn-carritoMovil " data-bs-toggle="modal" data-bs-target="#carritoComp">
+    <img src="./assets/logos/cartmovil.png" class="ms-3" alt="">
+    <p class="itemsCarritoo contadorNumero">0</p>
   </div>
 
   <!-- Titulo y botones de filtrado -->
   <section class="container-fluid mt-5">
-    <h1 class="text-center m-5">Nuestros Productos</h1>
+    <h1 class="text-center  nuestrosProductos">Nuestros Productos</h1>
     <div class="botonesFiltroFlex" id="filtro">
       <p class="textoFiltrar">Filtrar productos por su precio :</p>
       <button type="button" class="btn  mayorFil tamanoBoton">Mayor</button>
@@ -80,7 +120,7 @@
   </section>
   <!-- MODAL CARRITO DE COMPRAS -->
   <section class="modal fade" id="carritoComp" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
+    <div class="modal-dialog modal-dialog-scrollable modal-lg">
       <div class="modal-content">
         <div class="modal-header colorButonCards">
           <h5 class="modal-title" id="exampleModalLabel">Carrito de compra</h5>
@@ -92,19 +132,18 @@
         </div>
         <div class="modal-footer colorButonCards dflexButonns">
           <div class="d-flex gap-3">
-            <!-- TRABAJANDO AQUI -->
-            <button type="button" class="btn  finalizarCompra" id="finalizarC" data-bs-toggle="modal"
-              data-bs-dismiss="modal" >FINALIZAR COMPRA</button>
-            <button type="button" class="btn  btn-danger" id="vaciarCarrito">VACIAR CARRITO</button>
+            <button type="button" class="btn  finalizarCompra tituloProductoCard" id="finalizarC" data-bs-dismiss="modal">FINALIZAR
+              COMPRA</button>
+            <button type="button" class="btn  btn-danger tituloProductoCard" id="vaciarCarrito">VACIAR CARRITO</button>
           </div>
-          <div id="total"></div>
+          <div class="mt-3 textoVaciar" id="total"></div>
         </div>
       </div>
     </div>
   </section>
   <!-- MODAL FINALIZAR COMPRA -->
   <div class="modal fade" id="modalFinalizaCompra" tabindex="-1" aria-hidden="true" aria-labelledby="modalTittle">
-    <div class="modal-dialog">
+    <div class="modal-dialog ">
       <div class="modal-content">
         <div class="modal-header headerForm">
           <h5 class="modal-title text-center " id="modalTittle">Finaliza tu compra</h5>
@@ -123,7 +162,8 @@
             </div>
             <div class="col-12 mt-3">
               <label for="inputDireccion" class="form-label">Direccion</label>
-              <input type="text" class="form-control inputFormArea" id="inputDireccion" placeholder="Escribe tu direccion">
+              <input type="text" class="form-control inputFormArea" id="inputDireccion"
+                placeholder="Escribe tu direccion">
             </div>
             <div class="col-5 mt-3">
               <label for="ciudad" class="form-label">Ciudad</label>
@@ -173,17 +213,19 @@
       </div>
     </div>
   </div>
-  <footer class=" m-0">
-    <div class="m-0">
-      <p class="mb-0 alturaBoxFooter"><a href="#colorLogo" class="textoFooter">Home</a> </p>
-      <p class="mb-0 alturaBoxFooter cajaMedio"><a href="#tienda" class="textoFooter"> Producto</a></p>
-      <p class="mb-0 alturaBoxFooter cajaBaja"><a href="" class="textoFooter"> Contacto</a></p>
-    </div>
-    <div class="alturaBoxFooter redesBox">
-      <h5 class="mb-0 text-white">Nuestras redes</h5>
-      <div class="redesIconos">
-        <img src="./assets/redes/facebook.png" class="tamanoRedes" alt=""><img src="./assets/redes/instagram.png"
-          class="tamanoRedes" alt=""><img src="/assets/redes/twitter.png" class="tamanoRedes" alt="">
+  <footer class=" m-0 ">
+    <div class="marginBoxMd">
+      <div class="m-0  boxRefuerzo ">
+        <p class="mb-0 alturaBoxFooter"><a href="#colorLogo" class="textoFooter">Home</a> </p>
+        <p class="mb-0 alturaBoxFooter cajaMedio"><a href="#tienda" class="textoFooter"> Producto</a></p>
+        <p class="mb-0 alturaBoxFooter cajaBaja"><a href="" class="textoFooter"> Mi Carrito</a></p>
+      </div>
+      <div class="alturaBoxFooter redesBox ">
+        <h5 class="mb-0  text-center nuestrasRedes colorNuestrasRedes">Nuestras redes</h5>
+        <div class="redesIconos">
+          <img src="./assets/redes/facebook.png" class="tamanoRedes" alt=""><img src="./assets/redes/instagram.png"
+            class="tamanoRedes" alt=""><img src="/assets/redes/twitter.png" class="tamanoRedes" alt="">
+        </div>
       </div>
     </div>
   </footer>

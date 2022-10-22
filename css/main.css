@@ -3,6 +3,7 @@
   padding: 0px;
   box-sizing: border-box;
 }
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Dancing+Script:wght@400;700&family=Great+Vibes&family=Nunito&family=Poppins&family=Satisfy&display=swap');
 
 /* carrito de compras */
 .modalCarrito {
@@ -14,27 +15,37 @@
 /* navbar */
 
 nav {
-  background-color: rgb(43, 31, 31);
+  background-color: rgb(223, 94, 94);
 }
 .margenNav {
   margin-right: 250px;
 }
-.margenLogoNav {
+
+#colorLogo {
+  color: rgb(241, 214, 214);
+  font-family: 'Nunito', sans-serif;
+  font-size: 18px;
+}
+#colorLogoChoco {
   margin-left: 250px;
   color: rgb(241, 209, 209);
+  font-family: "Great Vibes", cursive;
+  font-size: 25px;
 }
-#colorLogo {
-  color: rgb(241, 209, 209);
+.modalCarrito {
+  min-width: 65px;
 }
-
 /* fin navbar */
 
-/* Botones de filtro */
+/* Botones de filtro y Titulo */
 .tamanoBoton {
   width: 74px;
   height: fit-content;
-  background-color: rgb(125, 90, 90);
+  background-color: rgb(73, 47, 16);
   color: rgb(241, 209, 209);
+  font-family: 'Nunito', sans-serif;
+  letter-spacing: 1px;
+  font-weight: 500;
 }
 
 .botonesFiltroFlex {
@@ -47,29 +58,205 @@ nav {
 
 .textoFiltrar {
   margin-top: 15px;
+  color: rgb(70, 69, 69);
+  font-family: 'Nunito', sans-serif;
+  font-weight: 600;
+  font-size: 17px;
 }
 
 body {
   background-color: rgb(250, 242, 242);
 }
 
+.nuestrosProductos{
+  font-size: 50px;
+  color: rgb(70, 69, 69);
+  font-family: 'Nunito', sans-serif;
+  font-weight: 600;
+  margin-top: 150px;
+  margin-bottom: 100px;
+}
+
 /* cards */
 .colorCards {
-  background-color: rgb(125, 90, 90);
+  background-color: rgb(73, 47, 16);
 }
 .colorTextoCard {
   color: rgb(241, 209, 209);
+  font-family: 'Nunito', sans-serif;
+  
 }
+
+.tituloProductoCard{
+  font-weight: 600;
+}
+
+
 
 .colorButonCards {
   background-color: rgb(241, 209, 209);
   color: rgb(125, 90, 90);
+  font-family: 'Nunito', sans-serif;
+  font-weight: 600;
 }
 
 /* carrousel */
 .tamanoCarrousel {
-  height: 600px;
+  max-height: 900px;
 }
+.carousel-inner img {
+  width: 100%;
+  height: fit-content;
+}
+
+.captionCenter {
+  top: 23%;
+  left: 10%;
+}
+.captionCenterDos {
+  top: 23%;
+  left: 10%;
+}
+
+.carousel-item::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgb(68, 67, 67);
+  opacity: 0.2;
+
+}
+
+.textElaboramos {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 600;
+  margin-bottom: 0px;
+  text-align: start;
+  max-width: 90%;
+  height: fit-content;
+  font-size: 45px;
+  color: rgb(49, 48, 48);
+  margin-left: 9px;
+  
+  
+}
+
+.textTituloCarousel {
+  font-family: "Bebas Neue" cursive;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 80px;
+  max-width: 80%;
+  text-align: start;
+  color: rgb(119, 88, 184);
+}
+
+.textUsamosCarousel {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 600;
+  text-align: start;
+  max-width: 90%;
+  font-size: 20px;
+  color: rgb(70, 69, 69);
+}
+
+.tituloSecondSlide{
+  text-align: start;
+  color: rgb(119, 88, 184);
+  font-size: 80px;
+  font-weight: 700;
+  font-family: "Bebas Neue" cursive;
+  text-transform: uppercase;
+}
+.textoSecondSlide{
+  text-align: start;
+  color: rgb(70, 69, 69);
+  font-family: 'Nunito', sans-serif;
+  font-weight: 600;
+  font-size: 45px;
+
+}
+
+.botonSlidesCatalogo{
+  background-color:  rgb(119, 88, 184);
+  text-align: start;
+  color: white;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 600;
+  height: 40px;
+  text-align: center;
+  margin-left: 5px;
+ 
+}
+.contendorSlidesCatalogosss{
+  display: flex;
+ 
+}
+
+
+/* Box info */
+
+
+
+.boxInfoPedidos {
+  margin-top: 3px;
+  background-color: rgb(223, 94, 94);
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.boxInfoPedidos p {
+  margin-bottom: 0px;
+  color: white;
+  font-family: 'Nunito', sans-serif;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 2px;
+  font-size: 15px;
+}
+
+.boxInfoReferidaEnvio{
+  display:flex;
+  margin-top: 3px;
+  gap: 3px;
+  justify-content: center;
+  
+ 
+  
+}
+
+.boxInfoReferidaCold{
+  background-color: rgb(253, 210, 191);
+  width: 35%;
+  display: flex;
+  flex-direction: column;
+  align-items:center ;
+  justify-content: center;
+  border-radius: 8px;
+  
+}
+
+.boxInfoReferidaCold img{
+  width: 60px;
+  margin-top: 20px;
+}
+.boxInfoReferidaCold p{
+  color: rgb(73, 47, 16);
+  margin-bottom: 20px;
+  margin-top: 10px;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 600;
+  text-align: center;
+
+}
+
+
+
 
 /* Botones del carrito de compra */
 
@@ -84,14 +271,17 @@ body {
   color: rgb(241, 209, 209);
 }
 
-
-/* Form pago */
-.headerForm{
-  background-color: rgb(241, 209, 209);
-
+.textoVaciar{
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
 }
 
-.inputFormArea{
+/* Form pago */
+.headerForm {
+  background-color: rgb(241, 209, 209);
+}
+
+.inputFormArea {
   background-color: rgb(238, 215, 215);
 }
 
@@ -119,25 +309,37 @@ body {
 /* Footer */
 .textoFooter {
   text-decoration: none;
-  color: white;
+  color: rgb(73, 47, 16);
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
 }
 
 footer {
   margin-top: 100px;
   display: flex;
-  gap: 200px;
+  flex-direction: row;
+  justify-content: flex-start;
   height: 400px;
   align-items: center;
-  background-color: rgb(43, 31, 31);
+  background-color: rgb(253, 210, 191);
+  gap: 300px;
+}
+
+.marginBoxMd {
+  display: flex;
+  margin-left: 80px;
+  gap: 300px;
 }
 
 .alturaBoxFooter {
-  margin-left: 100px;
   padding-bottom: 10px;
 }
 
 .redesBox {
   margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
 }
 
 .margenCatalogo {
@@ -152,6 +354,12 @@ footer {
   margin-top: 30px;
   display: flex;
   gap: 30px;
+}
+
+.nuestrasRedes{
+  color: rgb(73, 47, 16);
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
 }
 
 /* boton fixed carrito */
@@ -178,9 +386,331 @@ footer {
 
 .contadorNumero {
   margin-bottom: 50px;
+  font-family: 'Nunito', sans-serif;
+  background-color: rgb(241, 13, 13);
+  border-radius: 20px;
+  width: 25px;
+  text-align: center;
+  color: white;
+  margin-top: -35px;
+  height: fit-content;
 }
 
 .btn-carritoMovil:hover {
   background-color: rgb(241, 219, 219);
   cursor: pointer;
+}
+
+@media screen and (max-width: 1200px) {
+  /* navBar 1200px para abajo */
+  .margenNav {
+    margin-right: 0px;
+  }
+
+  #colorLogoChoco {
+    margin-left: 50px;
+    font-size: 25px;
+  }
+  .displayNoneMd {
+    display: none;
+  }
+
+  /* footer 1200px para abajo */
+  .textoFooter {
+    text-decoration: none;
+    color: rgb(73, 47, 16);
+  }
+
+  footer {
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: auto;
+    align-items: center;
+    background-color: rgb(253, 210, 191);
+    gap: 0px;
+  }
+
+  .alturaBoxFooter {
+    padding-bottom: 10px;
+  }
+
+  .redesBox {
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .margenCatalogo {
+    margin-bottom: 200px;
+  }
+
+  .tamanoRedes {
+    width: 40px;
+    margin-top: 20px;
+  }
+  .nuestrasRedes {
+    margin-top: 20px;
+  }
+  .redesIconos {
+    margin-top: 30px;
+    display: flex;
+    gap: 30px;
+  }
+
+  .marginBoxMd {
+    display: flex;
+    flex-direction: column;
+    margin-top: 100px;
+    margin-bottom: 50px;
+    margin-left: 0px;
+    gap: 0px;
+  }
+
+  .boxRefuerzo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 0px;
+  }
+
+  .textElaboramos {
+    font-size: 25px;
+  }
+  
+  .textTituloCarousel {
+    font-size: 60px;
+    max-width: 90%;
+  }
+  
+  .textUsamosCarousel {
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  /* navBar 768 px para abajo */
+
+  .margenNav {
+    margin-right: 0px;
+  }
+
+  .displayNoneMd {
+    display: none;
+  }
+  #colorLogoChoco {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 30px;
+    color: rgb(241, 209, 209);
+    font-family: "Great Vibes", cursive;
+    font-size: 25px;
+  }
+
+  /* footer 768px para abajo */
+  .textoFooter {
+    text-decoration: none;
+  }
+
+  footer {
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: auto;
+    align-items: center;
+    gap: 0px;
+  }
+
+  .alturaBoxFooter {
+    padding-bottom: 10px;
+  }
+
+  .redesBox {
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .margenCatalogo {
+    margin-bottom: 200px;
+  }
+
+  .tamanoRedes {
+    width: 40px;
+    margin-top: 20px;
+  }
+  .nuestrasRedes {
+    margin-top: 20px;
+  }
+  .redesIconos {
+    margin-top: 30px;
+    display: flex;
+    gap: 30px;
+  }
+
+  .marginBoxMd {
+    display: flex;
+    flex-direction: column;
+    margin-top: 100px;
+    margin-bottom: 50px;
+    margin-left: 0px;
+    gap: 0px;
+  }
+
+  .boxRefuerzo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 0px;
+  }
+
+  /* carrousel  768px para abajo*/
+  .captionCenter {
+    top: 30%;
+    left: 20%;
+  }
+
+  .captionCenterDos {
+    top: 20%;
+    left: 20%;
+  }
+
+  .textElaboramos {
+    text-align: center;
+    max-width: 90%;
+    font-size: 20px;
+    margin-left: 9px;
+    
+    
+  }
+  
+  .textTituloCarousel {
+    font-size: 30px;
+    max-width: 90%;
+    text-align: center;
+  }
+  
+  .textUsamosCarousel {
+    text-align: center;
+    max-width: 90%;
+    font-size: 12px;
+  }
+  
+  .tituloSecondSlide{
+    text-align: center;
+    font-size: 30px;
+    font-weight: 700;
+  }
+  .textoSecondSlide{
+    text-align: center;
+    font-size: 20px;
+  
+  }
+  
+  .botonSlidesCatalogo{
+    text-align: start;
+    height: 30px;
+    font-size: 14px;
+    text-align: center;
+    margin-left: 5px;
+  }
+
+  .contendorSlidesCatalogosss{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* BOX INFO 768*/
+  .boxInfoPedidos p {
+    font-size: 10px;
+  }
+
+  .boxInfoReferidaCold img{
+    width: 40px;
+  }
+  .boxInfoReferidaCold p{
+    font-size: 12px;
+  
+  }
+  
+  /* BOTONES DE FILTRADO */
+  .botonesFiltroFlex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-right: 0px;
+    flex-direction: column;
+  }
+
+  /* Boton carrito Fixed */
+
+  .btn-carritoMovil {
+    width: 80px;
+    height: 80px;
+    background-color: rgb(247, 228, 201);
+    border-radius: 100%;
+    bottom: 30px;
+    left: 10px;
+  
+    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.3);
+    z-index: 100;
+  }
+  .btn-carritoMovil img {
+    width: 50%;
+    height: 50%;
+  }
+  
+  .contadorNumero {
+    margin-bottom: 50px;
+    font-family: 'Nunito', sans-serif;
+    background-color: rgb(241, 13, 13);
+    border-radius: 20px;
+    width: 25px;
+    text-align: center;
+    color: white;
+    margin-top: -20px;
+    height: fit-content;
+  }
+  
+  .btn-carritoMovil:hover {
+    background-color: rgb(241, 219, 219);
+    cursor: pointer;
+  }
+  
+} 
+
+@media screen and (max-width: 450px){
+ 
+  .textTituloCarousel {
+    font-size: 30px;
+    max-width: 100%;
+    text-align: center;
+  }
+  .textUsamosCarousel {
+    display: none;
+  }
+  .captionCenter {
+    top: 15%;
+    left: 20%;
+  }
+
+  .captionCenterDos {
+    top: 15%;
+    left: 20%;
+  }
+
+  .boxInfoPedidos p {
+    font-size: 10px;
+    text-align: center;
+  }
+
 }

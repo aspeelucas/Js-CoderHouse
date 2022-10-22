@@ -25,9 +25,9 @@ async function mostrarProductos() {
       <div class="card text-dark colorCards" style="width: 18rem;">
       <img src="${e.img}" class="card-img-top w-100" alt="imagen producto">
       <div class="card-body colorTextoCard">
-        <h5 class="card-title">${e.nombre}</h5>
+        <h5 class="card-title tituloProductoCard">${e.nombre}</h5>
         <p class="card-text">${e.descripcion}</p>
-        <p>$ ${e.precio}</p>
+        <p class="tituloProductoCard">$ ${e.precio}</p>
         <button  class="btn colorButonCards" id="${e.id}">Agregar al Carrito</a>
       </div>
      </div>`
@@ -75,9 +75,9 @@ async function mostrarProductos() {
       <div class="card text-dark colorCards" style="width: 18rem;">
       <img src="${ele.img}" class="card-img-top w-100" alt="imagen producto">
       <div class="card-body colorTextoCard">
-        <h5 class="card-title">${ele.nombre}</h5>
+        <h5 class="card-title tituloProductoCard">${ele.nombre}</h5>
         <p class="card-text">${ele.descripcion}</p>
-        <p>$ ${ele.precio}</p>
+        <p class="tituloProductoCard" >$ ${ele.precio}</p>
         <button  class="btn colorButonCards" id="${ele.id}">Agregar al Carrito</a>
       </div>
      </div>`
@@ -112,9 +112,9 @@ async function mostrarProductos() {
       <div class="card text-dark colorCards" style="width: 18rem;">
       <img src="${img}" class="card-img-top w-100" alt="imagen producto">
       <div class="card-body colorTextoCard">
-        <h5 class="card-title">${nombre}</h5>
+        <h5 class="card-title tituloProductoCard">${nombre}</h5>
         <p class="card-text">${descripcion}</p>
-        <p>$ ${precio}</p>
+        <p class="tituloProductoCard">$ ${precio}</p>
         <button  class="btn colorButonCards" id="${id}">Agregar al Carrito</a>
       </div>
     </div>`
